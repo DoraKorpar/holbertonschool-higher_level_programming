@@ -27,5 +27,5 @@ meal = meal + meal * tax
 #Now we can calculate the total, including the tip.
 total = meal + meal * tip
 
-#Now the program prints the total using the % operand
+#Now the program prints the total to 6 decimal places using the % operand
 print "The price you need to pay is: $%.6f." % (total)
