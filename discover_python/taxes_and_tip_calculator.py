@@ -7,7 +7,7 @@
 print "Welcome to the taxes and tip calculator!"
 
 #The raw_input function takes the input of the user and stores it in the assigned variable. The first is meal. Wrapping raw_input in float ensures the value the user inputs will be stored as a float, which is necessary to do math with it.
-meal = float(raw_input("What is the price befor tax? "))
+meal = float(raw_input("What is the price before tax? "))
 
 #The second variable the program needs is the tax. 
 tax = float(raw_input("What are the taxes? (in %) "))
