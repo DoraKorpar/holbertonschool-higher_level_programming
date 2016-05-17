@@ -1,6 +1,7 @@
-# Class
+import math
+
 class Circle():
-    # Constructor
+
     def __init__(self, radius):
         self.__radius = radius
     
@@ -17,4 +18,4 @@ class Circle():
         return self.__color
 
     def area(self):
-        return ((self.__radius ** 2) * 3.14)
+        return ((self.__radius ** 2) * math.pi)
