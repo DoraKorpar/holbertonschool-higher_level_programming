@@ -1,0 +1,6 @@
+import string
+
+alpha = list(string.ascii_lowercase)
+
+for f in alpha:
+    print "%c" % (f)
