@@ -1,7 +1,10 @@
 import math
 
 class Circle():
-
+'''
+Straightforward writing in specs for class Circle.
+Imported math to use pi
+'''
     def __init__(self, radius):
         self.__radius = radius
     
