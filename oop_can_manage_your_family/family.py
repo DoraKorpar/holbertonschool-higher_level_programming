@@ -67,6 +67,11 @@ class Person():
         else:
             return (2016 - self.__date_of_birth[2])
 
+    ''' HANDLING COMPARATORS '''
+    def __cmp__(self, other):
+        if self.age() < other.age() : return -1
+        if self.age() == other.age() : return 0 
+        if self.age() > other.age() : return 1
 
     ''' METHOD DEFAULTS FOR SUBCLASSES '''
     def can_run(self):
