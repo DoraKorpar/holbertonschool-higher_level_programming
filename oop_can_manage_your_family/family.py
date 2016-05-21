@@ -30,16 +30,16 @@ class Person():
         self.__genre = genre
         self.__eyes_color = eyes_color
 
+        ''' CHILDREN ARRAY '''
+        self.children = []
+
     ''' PUBLIC ATTRIBUTE '''
     def last_name(self):
         self.last_name = last_name
 
     def is_married_to(int):
         self.is_married_to = is_married_to
-        
-    def children[list]:
-        self.children = children
-
+               
     ''' GETTERS '''
     def get_id(self):
         return self.__id
@@ -129,9 +129,9 @@ class Person():
         p.is_married_to = 0
 
     def just_married_with(self, p):
-        if can_be_married == False:
+        if self.can_be_married() or p.can_be_married() == False:
             raise Exception("Can't be married")
-        if is_married_to != 0:
+        if self.is_married_to != 0 or p.is_married_to != 0:
             raise Exception("Already married")
         self.is_married_to = p.__id
         p.is_married_to = self.__id
@@ -164,7 +164,7 @@ class Person():
             raise Exception("eyes_color is not valid")
         self.children.append(id)
         p.children.append(id)
-        baby = Baby()
+        baby = Baby(Person)
         baby.__id = id
         baby.__first_name = first_name
         baby.__date_of_birth = date_of_birth
@@ -217,3 +217,4 @@ def load_from_file(filename):
         raise Exception("filename is not valid or doesn't exit")
     with open(filename, 'r') as json_data:
         data = json.load(json_data)
+    return data
