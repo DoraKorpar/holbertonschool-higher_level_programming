@@ -1,3 +1,6 @@
+import json
+import os.path
+
 ''' DECLARING PERSON CLASS '''
 class Person():
 
@@ -34,6 +37,9 @@ class Person():
     ''' PUBLIC ATTRIBUTE '''
     def last_name(self):
         self.last_name = last_name
+
+    def is_married_to(int):
+        self.is_married_to = is_married_to
 
     ''' GETTERS '''
     def get_id(self):
@@ -73,6 +79,30 @@ class Person():
         if self.age() == other.age() : return 0 
         if self.age() > other.age() : return 1
 
+    ''' JSON METHODS '''
+    def json(self):
+        dict = {
+            'id': self.get_id(),
+            'eyes_color': self.get_eyes_color(),
+            'genre': self.get_genre,
+            'date_of_birth': self.get_date_of_birth(),
+            'first_name': self.get_first_name(),
+            'last_name': self.last_name,
+            'is_married_to': self.is_married_to
+            }
+        return dict
+
+    def load_from_json(self, json):
+        if type(json) is not dict:
+            raise Exception("json is not valid")
+        self.__id = json['id']
+        self.__eyes_color = json['eye_color']
+        self.__genre = json['genre']
+        self.__date_of_birth = json['date_of_birth']
+        self.__first_name = json['first_name']
+        self.last_name = json['last_name']
+        self.is_married_to = json['is_married_to']
+
     ''' METHOD DEFAULTS FOR SUBCLASSES '''
     def can_run(self):
         return True
@@ -86,6 +116,31 @@ class Person():
     def can_vote(self):
         return True
 
+    def can_be_married(self):
+        return True
+
+    def is_married(self):
+        if self.is_married_to != 0:
+            return True
+        else:
+            return False
+
+    def divorce(self, p):
+        self.is_married_to = 0
+        p.is_married_to = 0
+
+    def just_married_with(self, p):
+        if can_be_married == False:
+            raise Exception("Can't be married")
+        if is_married_to != 0:
+            raise Exception("Already married")
+        self.is_married_to = p.__id
+        p.is_married_to = self.__id
+        if self.__genre == "Male":
+            p.last_name = self.last_name
+        if p.__genre == "Male":
+            self.last_name = p.last_name
+
 ''' OTHER FAMILY CLASSES '''
 class Baby(Person):
 
@@ -93,12 +148,16 @@ class Baby(Person):
         return False
     def can_vote(self):
         return False
+    def can_be_married(self):
+        return False
 
 class Teenager(Person):
 
     def need_help(self):
         return False
     def can_vote(self):
+        return False
+    def can_be_married(self):
         return False
 
 class Adult(Person):
@@ -114,3 +173,14 @@ class Senior(Person):
         return False
     def is_young(self):
         return False
+
+''' JSON FUNCTIONS '''
+def save_to_file(list, filename):
+    with open(filename, 'w') as outfile:
+        json.dump(list, outfile)
+
+def load_from_file(filename):
+    if type(filename) is not str or os.path.exists(filename) == False:
+        raise Exception("filename is not valid or doesn't exit")
+    with open(filename, 'r') as json_data:
+        data = json.load(json_data)
