@@ -12,26 +12,22 @@ class Person():
     def __init__(self, id, first_name, date_of_birth, genre, eyes_color):
         if type(id) is not int or id < 0:
             raise Exception("id is not an integer")
-        self.__id = id
-
         if type(first_name) is not str or not first_name:
             raise Exception("first_name is not a string")
-        self.__first_name = first_name
-        
         if len(date_of_birth) != 3:
             raise Exception("date_of_birth is not a valid date")
         if date_of_birth[0] < 1 or date_of_birth[0] > 12:
             raise Exception("date_of_birth is not a valid date")
         if date_of_birth[1] < 1 or date_of_birth[1] > 31:
             raise Exception("date_of_birth is not a valid date")
-        self.__date_of_birth = date_of_birth
-
         if type(genre) is not str or genre not in Person.GENRES:
             raise Exception("genre is not valid")
-        self.__genre = genre
-
         if type(eyes_color) is not str or eyes_color not in Person.EYES_COLORS:
             raise Exception("eyes_color is not valid")
+        self.__id = id
+        self.__first_name = first_name
+        self.__date_of_birth = date_of_birth
+        self.__genre = genre
         self.__eyes_color = eyes_color
 
     ''' PUBLIC ATTRIBUTE '''
@@ -40,6 +36,9 @@ class Person():
 
     def is_married_to(int):
         self.is_married_to = is_married_to
+        
+    def children[list]:
+        self.children = children
 
     ''' GETTERS '''
     def get_id(self):
@@ -141,6 +140,38 @@ class Person():
         if p.__genre == "Male":
             self.last_name = p.last_name
 
+    def can_have_child(self):
+        return False
+
+    def has_child_with(self, p, id, first_name, date_of_birth, genre, eyes_color):
+        if p is None or p.can_have_child == False:
+            raise Exception("p is not an Adult or Senior")
+        if self is None or self.can_have_child == False:
+            raise Exception("self is not an Adult or Senior")
+        if type(id) is not int or id < 0:
+            raise Exception("id is not an integer")
+        if not first_name or type(first_name) is not str:
+            raise Exception("string is not a string")
+        if len(date_of_birth) != 3:
+            raise Exception("date_of_birth is not a valid date")
+        if date_of_birth[0] < 1 or date_of_birth[0] > 12:
+            raise Exception("date_of_birth is not a valid date")
+        if date_of_birth[1] < 1 or date_of_birth[1] > 31:
+            raise Exception("date_of_birth is not a valid date")
+        if type(genre) is not str or genre not in Person.GENRES:
+            raise Exception("genre is not valid")
+        if type(eyes_color) is not str or eyes_color not in Person.EYES_COLORS:
+            raise Exception("eyes_color is not valid")
+        self.children.append(id)
+        p.children.append(id)
+        baby = Baby()
+        baby.__id = id
+        baby.__first_name = first_name
+        baby.__date_of_birth = date_of_birth
+        baby.__genre = genre
+        baby.__eyes_color = eyes_color
+        return baby
+
 ''' OTHER FAMILY CLASSES '''
 class Baby(Person):
 
@@ -166,6 +197,8 @@ class Adult(Person):
         return False
     def is_young(self):
         return False
+    def can_have_child(self):
+        return True
 
 class Senior(Person):
 
