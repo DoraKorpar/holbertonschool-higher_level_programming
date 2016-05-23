@@ -30,16 +30,11 @@ class Person():
         self.__genre = genre
         self.__eyes_color = eyes_color
 
-        ''' CHILDREN ARRAY '''
+        ''' PUBLIC ATTRIBUTES '''
+        self.last_name = "Smith"
+        self.is_married_to = 0
         self.children = []
 
-    ''' PUBLIC ATTRIBUTE '''
-    def last_name(self):
-        self.last_name = last_name
-
-    def is_married_to(int):
-        self.is_married_to = is_married_to
-               
     ''' GETTERS '''
     def get_id(self):
         return self.__id
@@ -56,22 +51,6 @@ class Person():
     def get_first_name(self):
         return self.__first_name
 
-    ''' PUBLIC METHODS '''
-    def __str__(self):
-        return self.__first_name + " " + self.last_name
-
-    def is_male(self):
-        if self.__genre == "Male":
-            return True
-        else:
-            return False
-
-    def age(self):
-        if self.__date_of_birth[0] > 5 and self.__date_of_birth[1] > 20:
-            return (2015 - self.__date_of_birth[2])
-        else:
-            return (2016 - self.__date_of_birth[2])
-
     ''' HANDLING COMPARATORS '''
     def __cmp__(self, other):
         if self.age() < other.age() : return -1
@@ -81,11 +60,12 @@ class Person():
     ''' JSON METHODS '''
     def json(self):
         dict = {
-            'id': self.get_id(),
-            'eyes_color': self.get_eyes_color(),
-            'genre': self.get_genre,
-            'date_of_birth': self.get_date_of_birth(),
-            'first_name': self.get_first_name(),
+            'id': self.__id,
+            'kind': self.__class__.__name__,
+            'eyes_color': self.__eyes_color,
+            'genre': self.__genre,
+            'date_of_birth': self.__date_of_birth,
+            'first_name': self.__first_name,
             'last_name': self.last_name,
             'is_married_to': self.is_married_to
             }
@@ -95,7 +75,7 @@ class Person():
         if type(json) is not dict:
             raise Exception("json is not valid")
         self.__id = json['id']
-        self.__eyes_color = json['eye_color']
+        self.__eyes_color = json['eyes_color']
         self.__genre = json['genre']
         self.__date_of_birth = json['date_of_birth']
         self.__first_name = json['first_name']
@@ -118,11 +98,27 @@ class Person():
     def can_be_married(self):
         return True
 
-    def is_married(self):
-        if self.is_married_to != 0:
+    def can_have_child(self):
+        return False
+
+    ''' PUBLIC METHODS '''
+    def __str__(self):
+        return self.__first_name + " " + self.last_name
+
+    def is_male(self):
+        if self.__genre == "Male":
             return True
         else:
             return False
+
+    def age(self):
+        if self.__date_of_birth[0] > 5 and self.__date_of_birth[1] > 20:
+            return (2015 - self.__date_of_birth[2])
+        else:
+            return (2016 - self.__date_of_birth[2])
+
+    def is_married(self):
+        return (self.is_married_to != 0)
 
     def divorce(self, p):
         self.is_married_to = 0
@@ -139,9 +135,6 @@ class Person():
             p.last_name = self.last_name
         if p.__genre == "Male":
             self.last_name = p.last_name
-
-    def can_have_child(self):
-        return False
 
     def has_child_with(self, p, id, first_name, date_of_birth, genre, eyes_color):
         if p is None or p.can_have_child == False:
@@ -171,6 +164,13 @@ class Person():
         baby.__genre = genre
         baby.__eyes_color = eyes_color
         return baby
+
+    def adopt_child(self, c):
+        if self.can_have_child() == False:
+            raise Exception("Can't adopt a person")
+        if c.__class__.__name__ != "Baby" or c.__class__.__name__ != "Teenager":
+            raise Exception("Can't be adopted")
+        self.children.append(c.get_id())
 
 ''' OTHER FAMILY CLASSES '''
 class Baby(Person):
@@ -209,12 +209,38 @@ class Senior(Person):
 
 ''' JSON FUNCTIONS '''
 def save_to_file(list, filename):
-    with open(filename, 'w') as outfile:
-        json.dump(list, outfile)
+    if type(filename) is not str or os.path.exists(filename) == False:
+        raise Exception("filename is not valid or doesn't exit")
+
+    for i in range(len(list)):
+        list[i] = list[i].json()
+    file = open(filename, 'w')        
+    string = json.dumps(list)
+    file.write(string)
+    file.close()
 
 def load_from_file(filename):
     if type(filename) is not str or os.path.exists(filename) == False:
         raise Exception("filename is not valid or doesn't exit")
-    with open(filename, 'r') as json_data:
-        data = json.load(json_data)
-    return data
+    j = open(filename, 'r')
+    contents = j.read()
+    j.close()
+    
+    data = json.loads(contents)
+    person_array = []
+    for i in range(len(data)):
+        if 'kind' in data[i]:
+            if data[i]['kind'] == "Baby":
+                person = Baby(0, "first_name", [01, 01, 2000], "Male", "Green")
+            if data[i]['kind'] == "Teenager":
+                person = Teenager(0, "first_name", [01, 01, 2000], "Male", "Green")
+            if data[i]['kind'] == "Adult":
+                person = Adult(0, "first_name", [01, 01, 2000], "Male", "Green")
+            if data[i]['kind'] == "Senior":
+                person = Senior(0, "first_name", [01, 01, 2000], "Male", "Green")
+        else:
+            person = Person(0, "first_name", [01, 01, 2000], "Male", "Green")
+        person.load_from_json(data[i])
+        person_array.append(person)
+
+    return person_array
