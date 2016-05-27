@@ -48,8 +48,18 @@
                                     <action selector="clickPlayButton:" destination="ZGk-yX-A4d" eventType="touchUpInside" id="F9w-hb-8Y5"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUZ-JP-yyq">
+                                <rect key="frame" x="179" y="277" width="241" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="pkN-vr-BTH"/>
+                                    <constraint firstAttribute="width" constant="241" id="r6L-ia-c5R"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vW9-wg-ARF" userLabel="Coin Button">
-                                <rect key="frame" x="185" y="17" width="230" height="246"/>
+                                <rect key="frame" x="185" y="20" width="230" height="246"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="OBD-Q3-hlT"/>
                                     <constraint firstAttribute="height" constant="246" id="ZXm-be-szB"/>
@@ -59,16 +69,6 @@
                                     <action selector="clickCoinButton:" destination="ZGk-yX-A4d" eventType="touchUpInside" id="jfU-Ju-61W"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="X TAPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUZ-JP-yyq">
-                                <rect key="frame" x="250" y="273" width="101" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="O88-12-dR8"/>
-                                    <constraint firstAttribute="width" constant="101" id="TJL-e1-pbo"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
-                                <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -78,14 +78,14 @@
                             <constraint firstItem="tT5-SF-lJ5" firstAttribute="centerX" secondItem="mtc-1I-Vll" secondAttribute="centerX" id="Jdd-dq-aWV"/>
                             <constraint firstItem="xkY-Tr-GGf" firstAttribute="leading" secondItem="mtc-1I-Vll" secondAttribute="leadingMargin" constant="-20" id="L5x-qE-j2P"/>
                             <constraint firstItem="xkY-Tr-GGf" firstAttribute="centerX" secondItem="mtc-1I-Vll" secondAttribute="centerX" id="SRr-UN-3Eq"/>
+                            <constraint firstItem="ZUZ-JP-yyq" firstAttribute="centerX" secondItem="mtc-1I-Vll" secondAttribute="centerX" id="ZyT-dI-YEd"/>
                             <constraint firstItem="mff-Ji-vSb" firstAttribute="top" secondItem="tT5-SF-lJ5" secondAttribute="bottom" constant="63" id="bnb-DX-tsb"/>
                             <constraint firstItem="jAt-ch-yaR" firstAttribute="centerX" secondItem="mtc-1I-Vll" secondAttribute="centerX" id="dxT-wL-DEC"/>
+                            <constraint firstItem="ZUZ-JP-yyq" firstAttribute="top" secondItem="vW9-wg-ARF" secondAttribute="bottom" constant="10" id="ftJ-KA-082"/>
                             <constraint firstItem="vW9-wg-ARF" firstAttribute="top" secondItem="7bC-H0-8AP" secondAttribute="bottom" constant="10" id="g1e-2e-oVo"/>
                             <constraint firstItem="xkY-Tr-GGf" firstAttribute="top" secondItem="mtc-1I-Vll" secondAttribute="topMargin" id="jOd-0d-9gW"/>
                             <constraint firstItem="mff-Ji-vSb" firstAttribute="top" secondItem="xkY-Tr-GGf" secondAttribute="bottom" id="mUH-lo-0J4"/>
                             <constraint firstItem="vW9-wg-ARF" firstAttribute="centerX" secondItem="mtc-1I-Vll" secondAttribute="centerX" id="oHl-G1-Dkg"/>
-                            <constraint firstItem="ZUZ-JP-yyq" firstAttribute="centerX" secondItem="mtc-1I-Vll" secondAttribute="centerX" id="roa-pD-aG7"/>
-                            <constraint firstItem="ZUZ-JP-yyq" firstAttribute="top" secondItem="vW9-wg-ARF" secondAttribute="bottom" constant="10" id="xEH-SF-ckh"/>
                             <constraint firstItem="jJN-6u-wno" firstAttribute="centerX" secondItem="mtc-1I-Vll" secondAttribute="centerX" id="yYc-gY-baC"/>
                         </constraints>
                     </view>
@@ -99,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9f-3F-5u1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1307" y="-239"/>
+            <point key="canvasLocation" x="1217" y="-230"/>
         </scene>
     </scenes>
     <resources>

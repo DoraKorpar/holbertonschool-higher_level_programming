@@ -25,11 +25,7 @@ class ViewController: UIViewController {
             print("Let's do \(taps_requested) taps")
             
             if self.taps_requested != nil {
-                self.button_coin.hidden = false
-                self.label_taps.hidden = false
-                self.image_tapper.hidden = true
-                self.button_play.hidden = true
-                self.textfield_number.hidden = true
+                initGame()
             }
         }
     }
@@ -37,14 +33,32 @@ class ViewController: UIViewController {
     @IBAction func clickCoinButton(sender: AnyObject) {
         self.taps_done += 1
         if self.taps_done < self.taps_requested {
-            self.textfield_number.text = String(taps_done) + " TAPS"
+            self.label_taps.text = "\(taps_done) TAPS!"
         }
         if self.taps_done == self.taps_requested {
-            self.textfield_number.text = "YOU WIN"
+            self.label_taps.text = "YOU WIN"
         }
         if self.taps_done > self.taps_requested {
-
+            resetGame()
         }
+    }
+    
+    func initGame() -> Void {
+        self.button_coin.hidden = false
+        self.label_taps.hidden = false
+        self.image_tapper.hidden = true
+        self.button_play.hidden = true
+        self.textfield_number.hidden = true
+        self.label_taps.text = "0 TAPS!"
+    }
+    
+    func resetGame() -> Void {
+        self.label_taps.hidden = true
+        self.button_coin.hidden = true
+        self.image_tapper.hidden = false
+        self.button_play.hidden = false
+        self.textfield_number.hidden = false
+        self.taps_requested = 0
     }
     
     
