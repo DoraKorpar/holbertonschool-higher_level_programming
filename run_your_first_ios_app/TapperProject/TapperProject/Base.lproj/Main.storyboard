@@ -48,7 +48,7 @@
                                     <action selector="clickPlayButton:" destination="ZGk-yX-A4d" eventType="touchUpInside" id="F9w-hb-8Y5"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUZ-JP-yyq">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0 TAPS!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUZ-JP-yyq">
                                 <rect key="frame" x="179" y="277" width="241" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="pkN-vr-BTH"/>
