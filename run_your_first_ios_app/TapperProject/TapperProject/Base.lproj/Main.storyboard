@@ -21,18 +21,20 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retrobg" translatesAutoresizingMaskIntoConstraints="NO" id="xkY-Tr-GGf">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Tapper" translatesAutoresizingMaskIntoConstraints="NO" id="jAt-ch-yaR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tapper" translatesAutoresizingMaskIntoConstraints="NO" id="jAt-ch-yaR">
                                 <rect key="frame" x="137" y="62" width="330" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="330" id="GUG-Ul-Z2P"/>
                                     <constraint firstAttribute="height" constant="110" id="Rur-3Q-RN2"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="HOW MANY TAPS YOU WANTED?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jJN-6u-wno">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="HOW MANY TAPS YOU WANTED?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jJN-6u-wno">
                                 <rect key="frame" x="179" y="355" width="241" height="30"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="241" id="68r-hs-u3L"/>
                                     <constraint firstAttribute="height" constant="30" id="FKY-SP-CaC"/>
                                     <constraint firstAttribute="width" constant="241" id="ai6-YL-Smn"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="zcF-C0-ofB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -48,7 +50,7 @@
                                     <action selector="clickPlayButton:" destination="ZGk-yX-A4d" eventType="touchUpInside" id="F9w-hb-8Y5"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0 TAPS!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUZ-JP-yyq">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 TAPS!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUZ-JP-yyq">
                                 <rect key="frame" x="179" y="277" width="241" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="pkN-vr-BTH"/>
@@ -58,7 +60,7 @@
                                 <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vW9-wg-ARF" userLabel="Coin Button">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vW9-wg-ARF" userLabel="Coin Button">
                                 <rect key="frame" x="185" y="20" width="230" height="246"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="OBD-Q3-hlT"/>
@@ -78,11 +80,12 @@
                             <constraint firstItem="tT5-SF-lJ5" firstAttribute="centerX" secondItem="mtc-1I-Vll" secondAttribute="centerX" id="Jdd-dq-aWV"/>
                             <constraint firstItem="xkY-Tr-GGf" firstAttribute="leading" secondItem="mtc-1I-Vll" secondAttribute="leadingMargin" constant="-20" id="L5x-qE-j2P"/>
                             <constraint firstItem="xkY-Tr-GGf" firstAttribute="centerX" secondItem="mtc-1I-Vll" secondAttribute="centerX" id="SRr-UN-3Eq"/>
+                            <constraint firstItem="jJN-6u-wno" firstAttribute="top" secondItem="ZUZ-JP-yyq" secondAttribute="bottom" constant="37" id="XmO-GR-xmd"/>
                             <constraint firstItem="ZUZ-JP-yyq" firstAttribute="centerX" secondItem="mtc-1I-Vll" secondAttribute="centerX" id="ZyT-dI-YEd"/>
                             <constraint firstItem="mff-Ji-vSb" firstAttribute="top" secondItem="tT5-SF-lJ5" secondAttribute="bottom" constant="63" id="bnb-DX-tsb"/>
-                            <constraint firstItem="jAt-ch-yaR" firstAttribute="centerX" secondItem="mtc-1I-Vll" secondAttribute="centerX" id="dxT-wL-DEC"/>
-                            <constraint firstItem="ZUZ-JP-yyq" firstAttribute="top" secondItem="vW9-wg-ARF" secondAttribute="bottom" constant="10" id="ftJ-KA-082"/>
-                            <constraint firstItem="vW9-wg-ARF" firstAttribute="top" secondItem="7bC-H0-8AP" secondAttribute="bottom" constant="10" id="g1e-2e-oVo"/>
+                            <constraint firstItem="jAt-ch-yaR" firstAttribute="centerX" secondItem="mtc-1I-Vll" secondAttribute="centerX" constant="2" id="dxT-wL-DEC"/>
+                            <constraint firstItem="ZUZ-JP-yyq" firstAttribute="top" secondItem="vW9-wg-ARF" secondAttribute="bottom" constant="11" id="ftJ-KA-082"/>
+                            <constraint firstItem="vW9-wg-ARF" firstAttribute="top" secondItem="7bC-H0-8AP" secondAttribute="bottom" id="g1e-2e-oVo"/>
                             <constraint firstItem="xkY-Tr-GGf" firstAttribute="top" secondItem="mtc-1I-Vll" secondAttribute="topMargin" id="jOd-0d-9gW"/>
                             <constraint firstItem="mff-Ji-vSb" firstAttribute="top" secondItem="xkY-Tr-GGf" secondAttribute="bottom" id="mUH-lo-0J4"/>
                             <constraint firstItem="vW9-wg-ARF" firstAttribute="centerX" secondItem="mtc-1I-Vll" secondAttribute="centerX" id="oHl-G1-Dkg"/>

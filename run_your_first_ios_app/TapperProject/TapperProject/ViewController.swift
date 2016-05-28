@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     var taps_requested:Int? = 0
     
     @IBAction func clickPlayButton(sender: AnyObject) {
-        if self.textfield_number != nil && self.textfield_number.text != "" {
+        if self.textfield_number.text != "" {
             self.taps_requested = Int(self.textfield_number.text!)
             print("Let's do \(taps_requested) taps")
             
