@@ -24,7 +24,7 @@ class ViewController: UIViewController {
             self.taps_requested = Int(self.textfield_number.text!)
             print("Let's do \(taps_requested) taps")
             
-            if self.taps_requested != nil {
+            if self.taps_requested != nil && self.taps_requested > 0 {
                 initGame()
             }
         }
