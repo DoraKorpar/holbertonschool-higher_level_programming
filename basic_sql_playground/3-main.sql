@@ -7,10 +7,10 @@ SET age=18
 WHERE first_name="Walter Junior";
 
 DELETE FROM Person
-WHERE first_name="Walter";
+WHERE id=1;
 
 DELETE FROM EyesColor
-WHERE first_name="Walter";
+WHERE person_id=1;
 
 SELECT * FROM Person
 ORDER BY first_name;
